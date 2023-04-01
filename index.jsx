@@ -6,7 +6,16 @@ import Home from "./src/pages/Home";
 import About from "./src/pages/About";
 import { HostLayout, Layout } from "./src/components/index";
 import { Vans, VanDetail } from "./src/pages/Vans/index";
-import { Dashboard, Reviews, Income } from "./src/pages/Host/index";
+import {
+  Dashboard,
+  Reviews,
+  Income,
+  HostVans,
+  HostVanDetails,
+  VanPhotos,
+  VanPricing,
+  VanInfo,
+} from "./src/pages/Host/index";
 
 import "./server";
 
@@ -24,6 +33,12 @@ function App() {
             <Route index element={<Dashboard />} />
             <Route path="income" element={<Income />} />
             <Route path="reviews" element={<Reviews />} />
+            <Route path="vans" element={<HostVans />} />
+            <Route path="vans/:id" element={<HostVanDetails />}>
+              <Route index element={<VanInfo />} />
+              <Route path="pricing" element={<VanPricing />} />
+              <Route path="photos" element={<VanPhotos />} />
+            </Route>
           </Route>
         </Route>
       </Routes>
