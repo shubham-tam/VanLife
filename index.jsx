@@ -1,16 +1,14 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom"
-import Home from "./pages/Home"
-import About from "./pages/About"
-import Vans from "./pages/Vans/Vans"
-import VanDetail from "./pages/Vans/VanDetail"
-import Dashboard from "./pages/Host/Dashboard"
-import Income from "./pages/Host/Income"
-import Reviews from "./pages/Host/Reviews"
-import Layout from "./components/Layout"
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import "./server"
+import Home from "./src/pages/Home";
+import About from "./src/pages/About";
+import Layout from "./src/components/Layout";
+import { Vans, VanDetail } from "./src/pages/Vans/index";
+import { Dashboard, Reviews, Income } from "./src/pages/Host/index";
+
+import "./server";
 
 function App() {
   return (
@@ -21,16 +19,6 @@ function App() {
           <Route path="/about" element={<About />} />
           <Route path="/vans" element={<Vans />} />
           <Route path="/vans/:id" element={<VanDetail />} />
-
-          {/* 
-          Challenge: 
-          1. Turn the "/host" path into a parent route and nest
-          "/host/income" and "/host/reviews" as children routes.
-          Then try entering "/host/income" in the URL and see what
-          happens.
-          
-          2. See if you can figure out why it did what it did.
-          */}
           <Route path="/host" element={<Dashboard />}>
             <Route path="/host/income" element={<Income />} />
             <Route path="/host/reviews" element={<Reviews />} />
@@ -38,9 +26,7 @@ function App() {
         </Route>
       </Routes>
     </BrowserRouter>
-  )
+  );
 }
 
-ReactDOM
-  .createRoot(document.getElementById('root'))
-  .render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(<App />);
