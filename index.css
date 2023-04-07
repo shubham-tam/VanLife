@@ -10,6 +10,11 @@ body {
   font-family: "Inter", sans-serif;
 }
 
+a {
+  text-decoration: unset;
+  color: unset;
+}
+
 body::-webkit-scrollbar {
   display: none;
 }
@@ -184,6 +189,15 @@ footer {
   padding-inline: 23px;
 }
 
+.van-list-filter-buttons {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.van-list-filter-buttons > a {
+  margin-right: 15px;
+}
+
 .van-list {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -219,6 +233,10 @@ footer {
   transition: 200ms all cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+.van-type-style {
+  display: flex;
+  align-items: center;
+}
 .van-type:hover {
   color: #ffead0;
 }

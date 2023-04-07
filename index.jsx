@@ -2,8 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 
-import Home from "./src/pages/Home";
-import About from "./src/pages/About";
+import { Home, About, NotFound } from "./src/pages/index";
 import { HostLayout, Layout } from "./src/components/index";
 import { Vans, VanDetail } from "./src/pages/Vans/index";
 import {
@@ -41,6 +40,7 @@ function App() {
             </Route>
           </Route>
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </BrowserRouter>
   );
