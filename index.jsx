@@ -10,7 +10,7 @@ import {
 } from "react-router-dom";
 
 import { Home, About, NotFound } from "./src/pages/index";
-import { HostLayout, Layout } from "./src/components/index";
+import { HostLayout, Layout, Error } from "./src/components/index";
 import { Vans, VanDetail, Loader as vansLoader } from "./src/pages/Vans/index";
 import {
   Dashboard,
@@ -31,7 +31,12 @@ const router = createBrowserRouter(
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="about" element={<About />} />
-        <Route path="vans" element={<Vans />} loader={vansLoader} />
+        <Route
+          path="vans"
+          element={<Vans />}
+          loader={vansLoader}
+          errorElement={<Error />}
+        />
         <Route path="vans/:id" element={<VanDetail />} />
 
         <Route path="host" element={<HostLayout />}>
