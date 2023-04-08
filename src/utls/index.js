@@ -1,5 +1,2 @@
-export const activeStyles = {
-  fontWeight: "bold",
-  textDecoration: "underline",
-  color: "#161616",
-};
+export { activeStyles as activeStyles } from "./utlls";
+export { default as requireAuth } from "./auth";

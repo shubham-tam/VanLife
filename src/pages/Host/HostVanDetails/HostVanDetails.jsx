@@ -1,21 +1,15 @@
-import React, { useEffect, useState } from "react";
-import { Link, useParams, Outlet, NavLink } from "react-router-dom";
+import { Link, Outlet, NavLink, useLoaderData } from "react-router-dom";
 
-import { activeStyles } from "../../../utls";
+import { getHostVans } from "../../../../api";
+import { requireAuth, activeStyles } from "../../../utls";
+
+export const hostVanDetailsLoader = async ({ params }) => {
+  await requireAuth();
+  return getHostVans(params?.id);
+};
 
 const HostVanDetails = () => {
-  const { id } = useParams();
-  const [currVan, setCurrVan] = useState(null);
-
-  useEffect(() => {
-    fetch(`/api/host/vans/${id}`)
-      .then((res) => res.json())
-      .then((data) => setCurrVan(data.vans));
-  }, []);
-
-  if (!currVan) {
-    return <h1>Loading...</h1>;
-  }
+  const currVan = useLoaderData();
 
   return (
     <section>

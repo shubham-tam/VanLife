@@ -1,2 +1,5 @@
-export { default as Vans, Loader as Loader } from "./Vans";
-export { default as VanDetail } from "./VanDetail";
+export { default as Vans, loader as loader } from "./Vans";
+export {
+  default as VanDetail,
+  vanDetailLoader as vanDetailLoader,
+} from "./VanDetail";

@@ -1,6 +1,7 @@
 import { Link, NavLink } from "react-router-dom";
 
-import { activeStyles } from "../utls";
+import { activeStyles } from "../utls/utlls";
+import user from "../assets/images/user.png";
 
 export default function Header() {
   return (
@@ -27,6 +28,9 @@ export default function Header() {
         >
           Vans
         </NavLink>
+        <Link to="login">
+          <img src={user} alt="Login" className="login-link" />
+        </Link>
       </nav>
     </header>
   );
